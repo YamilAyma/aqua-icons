@@ -25,14 +25,14 @@ async function updateReadme() {
         if (file) {
           const name = file.replace('.png', '');
           const iconPath = `./icons/${file}`;
-          rowIcons += ` <a href="${iconPath}"><img src="${iconPath}" width="48" alt="${name}"></a> |`;
-          rowNames += ` \`${name}\` |`;
+          // Layout: Imagen arriba, Link abajo.
+          // Usamos <br> para el salto de línea dentro de la celda de la tabla.
+          rowIcons += ` <img src="${iconPath}" width="48" alt="${name}"><br>[${name}](${iconPath}) |`;
         } else {
           rowIcons += ' |';
-          rowNames += ' |';
         }
       }
-      tableContent += rowIcons + '\n' + rowNames + '\n';
+      tableContent += rowIcons + '\n';
     }
 
     const readme = fs.readFileSync(README_PATH, 'utf8');
