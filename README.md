@@ -1,23 +1,17 @@
-# 🌊 Aqua Icons (Skeuomorphic 2003 Style)
 
-Colección de activos visuales premium inspirados en la estética **Apple Aqua de 2003**. Diseñados como un recurso versátil para diseño gráfico, interfaces de usuario y proyectos creativos que buscan evocar nostalgia tecnológica con alta fidelidad.
-
-<!-- TECHNICAL RECOMMENDATION: Insertar banner generado con el prompt de abajo aquí. -->
 <div align="center">
-  <img src="https://via.placeholder.com/1200x400?text=Aqua+Icons+Banner+Placeholder" width="100%" alt="Aqua Icons Banner" />
+  <img src="./images/banner.webp" width="100%" alt="Aqua Icons Banner" />
 </div>
 
-## 🎨 Generación de Recursos (AI Prompts)
+## 🌊 Aqua Icons
 
-### Banner del Repositorio
-Utiliza este prompt para generar un banner coherente con la estética:
-> *Ultra-glossy skeuomorphic banner, Apple Aqua 2003 style, glass buttons, liquid textures, translucent blue and silver materials, vibrant highlights, high-fidelity 3D render, nostalgic tech aesthetic, 8k resolution.*
+Colección de activos visuales. Recurso versátil para diseño gráfico, interfaces de usuario y proyectos creativos que buscan evocar nostalgia tecnológica con alta fidelidad.
 
-### Ejemplos de Uso en Interfaces
-Prompts para visualizar estos iconos en acción:
-1. **Old Style Media Player**: *UI Design of a 2003-era media player using glossy Aqua icons, brushed aluminum textures, liquid-filled buttons, and skeuomorphic dials.*
-2. **Neumorphic Fusion**: *Modern neumorphic interface with a retro twist, incorporating high-fidelity skeuomorphic icons like glass brains and metallic robots, soft shadows, pastel color palette.*
+## Ejemplos de Uso en Interfaces
 
+| Interfaz Old Style | Fusión Neumórfica |
+| :---: | :---: |
+| <img src="./images/example1.webp" width="400" alt="Ejemplo 1"> | <img src="./images/example2.webp" width="400" alt="Ejemplo 2"> |
 ---
 
 ## 📂 Galería de Iconos
@@ -26,32 +20,20 @@ A continuación se muestra la colección completa de iconos disponibles en este 
 
 <!-- ICON_TABLE_START -->
 
-| Icono | Nombre |
-| :---: | :--- |
-| [![arrow-down](./icons/arrow-down.png)](./icons/arrow-down.png) | `arrow-down` |
-| [![arrow-right](./icons/arrow-right.png)](./icons/arrow-right.png) | `arrow-right` |
-| [![brain](./icons/brain.png)](./icons/brain.png) | `brain` |
-| [![bug](./icons/bug.png)](./icons/bug.png) | `bug` |
-| [![chat](./icons/chat.png)](./icons/chat.png) | `chat` |
-| [![check](./icons/check.png)](./icons/check.png) | `check` |
-| [![cloud](./icons/cloud.png)](./icons/cloud.png) | `cloud` |
-| [![cross](./icons/cross.png)](./icons/cross.png) | `cross` |
-| [![database](./icons/database.png)](./icons/database.png) | `database` |
-| [![document](./icons/document.png)](./icons/document.png) | `document` |
-| [![fire](./icons/fire.png)](./icons/fire.png) | `fire` |
-| [![folder-closed](./icons/folder-closed.png)](./icons/folder-closed.png) | `folder-closed` |
-| [![folder-open](./icons/folder-open.png)](./icons/folder-open.png) | `folder-open` |
-| [![globe](./icons/globe.png)](./icons/globe.png) | `globe` |
-| [![image](./icons/image.png)](./icons/image.png) | `image` |
-| [![lightbulb](./icons/lightbulb.png)](./icons/lightbulb.png) | `lightbulb` |
-| [![lock](./icons/lock.png)](./icons/lock.png) | `lock` |
-| [![math](./icons/math.png)](./icons/math.png) | `math` |
-| [![robot](./icons/robot.png)](./icons/robot.png) | `robot` |
-| [![scroll](./icons/scroll.png)](./icons/scroll.png) | `scroll` |
-| [![search](./icons/search.png)](./icons/search.png) | `search` |
-| [![sound](./icons/sound.png)](./icons/sound.png) | `sound` |
-| [![star](./icons/star.png)](./icons/star.png) | `star` |
-| [![tools](./icons/tools.png)](./icons/tools.png) | `tools` |
+|                                                                                                              |                                                                                                              |                                                                                            |                                                                                                                    |
+| :----------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------: |
+|  `<a href="./icons/arrow-down.png"><img src="./icons/arrow-down.png" width="48" alt="arrow-down">``</a>`  | `<a href="./icons/arrow-right.png"><img src="./icons/arrow-right.png" width="48" alt="arrow-right">``</a>` | `<a href="./icons/brain.png"><img src="./icons/brain.png" width="48" alt="brain">``</a>` |                `<a href="./icons/bug.png"><img src="./icons/bug.png" width="48" alt="bug">``</a>`                |
+|                                                `arrow-down`                                                |                                               `arrow-right`                                               |                                         `brain`                                         |                                                      `bug`                                                      |
+|           `<a href="./icons/chat.png"><img src="./icons/chat.png" width="48" alt="chat">``</a>`           |          `<a href="./icons/check.png"><img src="./icons/check.png" width="48" alt="check">``</a>`          | `<a href="./icons/cloud.png"><img src="./icons/cloud.png" width="48" alt="cloud">``</a>` |             `<a href="./icons/cross.png"><img src="./icons/cross.png" width="48" alt="cross">``</a>`             |
+|                                                   `chat`                                                   |                                                  `check`                                                  |                                         `cloud`                                         |                                                     `cross`                                                     |
+|     `<a href="./icons/database.png"><img src="./icons/database.png" width="48" alt="database">``</a>`     |     `<a href="./icons/document.png"><img src="./icons/document.png" width="48" alt="document">``</a>`     |  `<a href="./icons/fire.png"><img src="./icons/fire.png" width="48" alt="fire">``</a>`  | `<a href="./icons/folder-closed.png"><img src="./icons/folder-closed.png" width="48" alt="folder-closed">``</a>` |
+|                                                 `database`                                                 |                                                 `document`                                                 |                                          `fire`                                          |                                                 `folder-closed`                                                 |
+| `<a href="./icons/folder-open.png"><img src="./icons/folder-open.png" width="48" alt="folder-open">``</a>` |          `<a href="./icons/globe.png"><img src="./icons/globe.png" width="48" alt="globe">``</a>`          | `<a href="./icons/image.png"><img src="./icons/image.png" width="48" alt="image">``</a>` |       `<a href="./icons/lightbulb.png"><img src="./icons/lightbulb.png" width="48" alt="lightbulb">``</a>`       |
+|                                               `folder-open`                                               |                                                  `globe`                                                  |                                         `image`                                         |                                                   `lightbulb`                                                   |
+|           `<a href="./icons/lock.png"><img src="./icons/lock.png" width="48" alt="lock">``</a>`           |           `<a href="./icons/math.png"><img src="./icons/math.png" width="48" alt="math">``</a>`           | `<a href="./icons/robot.png"><img src="./icons/robot.png" width="48" alt="robot">``</a>` |           `<a href="./icons/scroll.png"><img src="./icons/scroll.png" width="48" alt="scroll">``</a>`           |
+|                                                   `lock`                                                   |                                                   `math`                                                   |                                         `robot`                                         |                                                     `scroll`                                                     |
+|        `<a href="./icons/search.png"><img src="./icons/search.png" width="48" alt="search">``</a>`        |          `<a href="./icons/sound.png"><img src="./icons/sound.png" width="48" alt="sound">``</a>`          |  `<a href="./icons/star.png"><img src="./icons/star.png" width="48" alt="star">``</a>`  |             `<a href="./icons/tools.png"><img src="./icons/tools.png" width="48" alt="tools">``</a>`             |
+|                                                  `search`                                                  |                                                  `sound`                                                  |                                          `star`                                          |                                                     `tools`                                                     |
 
 <!-- ICON_TABLE_END -->
 
@@ -60,13 +42,16 @@ A continuación se muestra la colección completa de iconos disponibles en este 
 ## 🚀 Consumo y Uso Creativo
 
 ### Activos Multidisciplinarios
+
 Todos los iconos están en formato **PNG de alta resolución con transparencia (alpha channel)**, lo que permite su uso inmediato en diversas herramientas:
+
 - **Diseño Gráfico**: Adobe Photoshop, Illustrator, Canva, Affinity Designer.
 - **Prototipado**: Figma, Penpot, Sketch.
 - **Video y Motion**: After Effects, Premiere Pro, DaVinci Resolve.
 - **Desarrollo**: Astro, React, Next.js, Flutter, Qt.
 
 ### Integración
+
 Simplemente arrastra los archivos desde la carpeta `icons/` a tu espacio de trabajo. Si los usas en proyectos de código, se recomienda servirlos como activos estáticos.
 
 ## 💡 Escenarios de Aplicación
@@ -78,12 +63,12 @@ Simplemente arrastra los archivos desde la carpeta `icons/` a tu espacio de trab
 
 ## ⚖️ Diferencia con Otros Iconos
 
-| Característica | Aqua Icons | Flat Design | Emojis Estándar |
-| :--- | :--- | :--- | :--- |
-| **Estilo** | Skeuomórfico (3D Realista) | Minimalista (2D) | Variado / Vectorial |
-| **Materialidad** | Cristal, Metal, Líquido | Colores Planos | Glifos Genéricos |
-| **Impacto Visual** | Alto (Premium/Nostálgico) | Bajo (Funcional) | Medio (Familiar) |
-| **Personalidad** | Única y Táctil | Genérica y Limpia | Informal |
+| Característica          | Aqua Icons                  | Flat Design        | Emojis Estándar    |
+| :----------------------- | :-------------------------- | :----------------- | :------------------ |
+| **Estilo**         | Skeuomórfico (3D Realista) | Minimalista (2D)   | Variado / Vectorial |
+| **Materialidad**   | Cristal, Metal, Líquido    | Colores Planos     | Glifos Genéricos   |
+| **Impacto Visual** | Alto (Premium/Nostálgico)  | Bajo (Funcional)   | Medio (Familiar)    |
+| **Personalidad**   | Única y Táctil            | Genérica y Limpia | Informal            |
 
 ---
 

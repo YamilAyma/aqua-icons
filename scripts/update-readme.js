@@ -13,19 +13,27 @@ async function updateReadme() {
       .filter(file => file.endsWith('.png'))
       .sort((a, b) => a.localeCompare(b));
 
-    let tableContent = '\n| Icono | Nombre |\n| :---: | :--- |\n';
+    const COLUMNS = 4;
+    let tableContent = '\n| | | | |\n| :---: | :---: | :---: | :---: |\n';
     
-    // User requested a table with link to icon and name below. 
-    // To make it look good in README, I'll use a standard vertical table for now, 
-    // or a grid if possible. Let's do a simple 2-column table as a baseline 
-    // but the user said "link para ir al icono, un nombre debajo".
-    // Actually, "link para ir al icono" usually implies the image itself is a link or has a link.
-    
-    files.forEach(file => {
-      const name = file.replace('.png', '');
-      const iconPath = `./icons/${file}`;
-      tableContent += `| [![${name}](${iconPath})](${iconPath}) | \`${name}\` |\n`;
-    });
+    for (let i = 0; i < files.length; i += COLUMNS) {
+      let rowIcons = '|';
+      let rowNames = '|';
+      
+      for (let j = 0; j < COLUMNS; j++) {
+        const file = files[i + j];
+        if (file) {
+          const name = file.replace('.png', '');
+          const iconPath = `./icons/${file}`;
+          rowIcons += ` <a href="${iconPath}"><img src="${iconPath}" width="48" alt="${name}"></a> |`;
+          rowNames += ` \`${name}\` |`;
+        } else {
+          rowIcons += ' |';
+          rowNames += ' |';
+        }
+      }
+      tableContent += rowIcons + '\n' + rowNames + '\n';
+    }
 
     const readme = fs.readFileSync(README_PATH, 'utf8');
     const startIdx = readme.indexOf(ICON_TABLE_START);
@@ -42,7 +50,7 @@ async function updateReadme() {
       readme.substring(endIdx);
 
     fs.writeFileSync(README_PATH, newReadme);
-    console.log(`Successfully updated README.md with ${files.length} icons.`);
+    console.log(`Successfully updated README.md with a grid of ${files.length} icons.`);
   } catch (err) {
     console.error('Error updating README:', err);
   }
