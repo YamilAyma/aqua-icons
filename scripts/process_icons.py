@@ -109,6 +109,7 @@ def process_single_icon(
     raw_path: Path,
     session,
     *,
+    pack: str,
     alpha_matting: bool,
     force: bool,
     dry_run: bool,
@@ -118,16 +119,16 @@ def process_single_icon(
 ) -> bool:
     """Process one icon: remove bg → save → commit. Returns True on success."""
     icon_name = raw_path.stem
-    output_path = ICONS_DIR / f"{icon_name}.png"
+    output_path = ICONS_DIR / pack / f"{icon_name}.png"
     prefix = f"[{index}/{total}]"
 
     # Check if already exists
     if output_path.exists() and not force:
-        log(f"{prefix} ⏭️  {icon_name} — already exists in icons/ (use --force to overwrite)")
+        log(f"{prefix} ⏭️  {icon_name} — already exists in icons/{pack}/ (use --force to overwrite)")
         return True
 
     if dry_run:
-        log(f"{prefix} 🔍 {icon_name} — would process {raw_path.name} → icons/{icon_name}.png")
+        log(f"{prefix} 🔍 {icon_name} — would process {raw_path.name} → icons/{pack}/{icon_name}.png")
         return True
 
     # Process
@@ -145,8 +146,8 @@ def process_single_icon(
     # Git commit
     if not no_commit:
         try:
-            run_git("add", f"icons/{icon_name}.png")
-            run_git("commit", "-m", f"🎨 icon (Aqua) - Add {icon_name} icon")
+            run_git("add", f"icons/{pack}/{icon_name}.png")
+            run_git("commit", "-m", f"🎨 icon (Aqua) [{pack}] - Add {icon_name} icon")
             log(f"{prefix} 📦 committed", "  ")
         except subprocess.CalledProcessError as e:
             log(f"{prefix} ⚠️  git commit failed: {e.stderr.strip()}", "  ")
@@ -190,10 +191,15 @@ def run_pipeline(args: argparse.Namespace) -> int:
     failures = 0
     t_pipeline = time.time()
 
+    # Ensure pack directory exists
+    if not args.dry_run:
+        (ICONS_DIR / args.pack).mkdir(parents=True, exist_ok=True)
+
     for i, raw_path in enumerate(raw_images, 1):
         ok = process_single_icon(
             raw_path,
             session,
+            pack=args.pack,
             alpha_matting=args.alpha_matting,
             force=args.force,
             dry_run=args.dry_run,
@@ -230,7 +236,7 @@ def run_pipeline(args: argparse.Namespace) -> int:
         log_header("🧹 Cleaning up raw-icons/")
         for raw_path in raw_images:
             icon_name = raw_path.stem
-            output_path = ICONS_DIR / f"{icon_name}.png"
+            output_path = ICONS_DIR / args.pack / f"{icon_name}.png"
             if output_path.exists():
                 raw_path.unlink()
                 log(f"Deleted {raw_path.name}")
@@ -287,6 +293,11 @@ def main() -> None:
         "--no-readme",
         action="store_true",
         help="Skip README update after processing",
+    )
+    parser.add_argument(
+        "--pack",
+        default="pack1",
+        help="The target pack directory under icons/ (default: pack1)",
     )
 
     args = parser.parse_args()

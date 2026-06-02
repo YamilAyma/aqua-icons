@@ -5,3 +5,4 @@ node_modules
 raw-icons/
 __pycache__/
 *.pyc
+todo.txt

@@ -9,30 +9,51 @@ const ICON_TABLE_END = '<!-- ICON_TABLE_END -->';
 
 async function updateReadme() {
   try {
-    const files = fs.readdirSync(ICONS_DIR)
-      .filter(file => file.endsWith('.png'))
-      .sort((a, b) => a.localeCompare(b));
+    // Escanea subcarpetas (packs) dentro de icons/
+    const items = fs.readdirSync(ICONS_DIR);
+    const packs = items
+      .filter(item => {
+        const itemPath = path.join(ICONS_DIR, item);
+        return fs.statSync(itemPath).isDirectory();
+      })
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
 
-    const COLUMNS = 4;
-    let tableContent = '\n| | | | |\n| :---: | :---: | :---: | :---: |\n';
-    
-    for (let i = 0; i < files.length; i += COLUMNS) {
-      let rowIcons = '|';
-      let rowNames = '|';
+    let allPacksContent = '\n';
+
+    for (const pack of packs) {
+      const packPath = path.join(ICONS_DIR, pack);
+      const files = fs.readdirSync(packPath)
+        .filter(file => file.endsWith('.png'))
+        .sort((a, b) => a.localeCompare(b));
+
+      if (files.length === 0) continue;
+
+      // Capitaliza el nombre del pack para la presentación (ej. pack1 -> Pack 1)
+      const formattedPackName = pack.replace(/(\d+)/g, ' $1').replace(/^\w/, c => c.toUpperCase());
+
+      let packContent = `<details>\n  <summary><b>📦 ${formattedPackName} (${files.length} iconos)</b></summary>\n  <br>\n\n`;
       
-      for (let j = 0; j < COLUMNS; j++) {
-        const file = files[i + j];
-        if (file) {
-          const name = file.replace('.png', '');
-          const iconPath = `./icons/${file}`;
-          // Layout: Imagen arriba, Link abajo.
-          // Usamos <br> para el salto de línea dentro de la celda de la tabla.
-          rowIcons += ` <img src="${iconPath}" width="48" alt="${name}"><br>[${name}](${iconPath}) |`;
-        } else {
-          rowIcons += ' |';
+      const COLUMNS = 4;
+      let tableContent = '| | | | |\n| :---: | :---: | :---: | :---: |\n';
+      
+      for (let i = 0; i < files.length; i += COLUMNS) {
+        let rowIcons = '|';
+        
+        for (let j = 0; j < COLUMNS; j++) {
+          const file = files[i + j];
+          if (file) {
+            const name = file.replace('.png', '');
+            const iconPath = `./icons/${pack}/${file}`;
+            rowIcons += ` <img src="${iconPath}" width="48" alt="${name}"><br>[${name}](${iconPath}) |`;
+          } else {
+            rowIcons += ' |';
+          }
         }
+        tableContent += rowIcons + '\n';
       }
-      tableContent += rowIcons + '\n';
+      
+      packContent += tableContent + '\n</details>\n\n';
+      allPacksContent += packContent;
     }
 
     const readme = fs.readFileSync(README_PATH, 'utf8');
@@ -46,11 +67,11 @@ async function updateReadme() {
 
     const newReadme = 
       readme.substring(0, startIdx + ICON_TABLE_START.length) +
-      '\n' + tableContent + '\n' +
+      '\n' + allPacksContent +
       readme.substring(endIdx);
 
     fs.writeFileSync(README_PATH, newReadme);
-    console.log(`Successfully updated README.md with a grid of ${files.length} icons.`);
+    console.log(`Successfully updated README.md with collapsibles for ${packs.length} packs.`);
   } catch (err) {
     console.error('Error updating README:', err);
   }
