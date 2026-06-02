@@ -61,6 +61,7 @@ def run_git(*args: str) -> subprocess.CompletedProcess:
         cwd=PROJECT_ROOT,
         capture_output=True,
         text=True,
+        encoding="utf-8",
         check=True,
     )
 
@@ -215,6 +216,7 @@ def run_pipeline(args: argparse.Namespace) -> int:
                 check=True,
                 capture_output=True,
                 text=True,
+                encoding="utf-8",
             )
             run_git("add", "README.md")
             run_git("commit", "-m", "📝 docs (README) - Update icon gallery table")
